@@ -1,6 +1,10 @@
 #Grab the latest alpine image
 FROM alpine:latest
 
+RUN python3 -m venv /path/to/venv
+RUN source /path/to/venv/bin/activate
+RUN pip install -r /tmp/requirements.txt
+
 # Install python and pip
 RUN apk add --no-cache --update python3 py3-pip bash
 ADD ./webapp/requirements.txt /tmp/requirements.txt
